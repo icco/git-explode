@@ -9,6 +9,9 @@ for folder in $folders ; do
    cd ./"$folder";
    echo "Begining to work on `pwd`";
    git filter-branch --subdirectory-filter "$folder" -- --all;
+   git for-each-ref --format="%(refname)" refs/original/ | xargs -n 1 git update-ref -d;
+   git reflog expire --expire=now --all;
+   git gc --prune=now;
    cd ..;
 done;
 
