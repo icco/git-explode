@@ -11,6 +11,7 @@ sub-directory.
  * step 4: cp git-explosion.sh /tmp
  * step 5: cd /tmp && mkdir explode && cd explode && mv ../git-explosion.sh .
  * step 6: ./git-explosion.sh
+ * step 7: cd ..; for folder in `ls explode`; do  git clone --mirror file:///home/git/explode/$folder; done;
 
 ## Warnings
  
