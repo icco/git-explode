@@ -5,13 +5,14 @@ root_folder='/home/nat/school/';
 folders=`ls $root_folder`;
 
 for folder in $folders ; do
-   git clone -q "$root_folder" "$folder";
+   echo "--- $folder";
+   git clone -q file://"$root_folder" "$folder";
    cd ./"$folder";
-   echo "Begining to work on `pwd`";
+   echo " -- now in `pwd`";
    git filter-branch --subdirectory-filter "$folder" -- --all;
    git for-each-ref --format="%(refname)" refs/original/ | xargs -n 1 git update-ref -d;
    git reflog expire --expire=now --all;
-   git gc --prune=now;
+   git gc -q --prune=now;
    cd ..;
 done;
 

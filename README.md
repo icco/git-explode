@@ -12,4 +12,7 @@ sub-directory.
  * step 5: cd /tmp && mkdir explode && cd explode && mv ../git-explosion.sh .
  * step 6: ./git-explosion.sh
 
+## Warnings
+ 
+ Since this clones, it should be ok, but backups are probably a good idea.
 
