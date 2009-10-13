@@ -9,6 +9,7 @@ for folder in $folders ; do
    cd ./"$folder";
    echo "Begining to work on `pwd`";
    git filter-branch --subdirectory-filter "$folder" -- --all;
+   git gc;
    cd ..;
 done;
 
